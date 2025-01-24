@@ -31,16 +31,15 @@ A equipe está organizada conforme a tabela abaixo:
 
 | Nome do Membro      | Função                  | Contribuições                        |
 |---------------------|-------------------------|--------------------------------------|
-| Nome 1              | Líder                  | Gestão do repositório e revisão de PRs |
-| Nome 2              | Desenvolvedor          | Animação para a tecla 0              |
-| Nome 3              | Desenvolvedor          | Animação para a tecla 1              |
-| Nome 4              | Desenvolvedor          | Animação para a tecla 2              |
-| Nome 5              | Desenvolvedor          | Animação para a tecla 3              |
-| Nome 6              | Desenvolvedor          | Animação para a tecla 4              |
-| Nome 7              | Desenvolvedor          | Animação para a tecla 5              |
-| Nome 8              | Desenvolvedor          | Animação para a tecla 6              |
-| Nome 9              | Desenvolvedor          | Animação para a tecla 7              |
-| Nome 10             | Desenvolvedor          | Animação para a tecla 8              |
+| Reinan Argolo       | Líder                   | Gestão do repositório e revisão de PRs Animação para a tecla 1 |
+| Pedro Duarte        | Desenvolvedor           | Animação para a tecla 2 e implementação da função da letra B (azul 100%)|
+| Nome 3              | Desenvolvedor           | Animação para a tecla 3              |
+| Nome 4              | Desenvolvedor           | Animação para a tecla 4              |
+| Nome 5              | Desenvolvedor           | Animação para a tecla 5              |
+| Nome 6              | Desenvolvedor           | Animação para a tecla 6              |
+| Nome 7              | Desenvolvedor           | Animação para a tecla 7              |
+| Nome 8              | Desenvolvedor           | Animação para a tecla 8              |
+| Nome 9              | Desenvolvedor           | Animação para a tecla 9              |
 
 
 ## Como Executar
