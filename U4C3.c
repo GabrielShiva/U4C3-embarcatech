@@ -16,6 +16,10 @@
 #define MATRIX_DEPTH 3
 
 void a1();
+void a2(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
+
+// Funções obrigatórias
+void acendeAzulTotal(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);   
 
 int main() {
     npLED_t leds[LED_COUNT];
@@ -34,6 +38,7 @@ int main() {
             printf("Você pressionou 1\n"); // implementação da animação 1
             a1(16, leds, rgb_matrix);
         } else if (key == '2') {
+            a2(leds, rgb_matrix);
             printf("Você pressionou 2\n"); // implementação da animação 2
         } else if (key == '3') {
             printf("Você pressionou 3\n"); // implementação da animação 3
@@ -54,6 +59,7 @@ int main() {
         } else if (key == 'A') {
             printf("Você pressionou A\n"); // implementação da animação 11
         } else if (key == 'B') {
+            acendeAzulTotal(leds, rgb_matrix);
             printf("Você pressionou B\n"); // implementação da animação 12
         } else if (key == 'C') {
             printf("Você pressionou C\n"); // implementação da animação 13
@@ -82,4 +88,47 @@ void a1(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MAT
             sleep_ms(100); // Define a velocidade da animação
         }
         turnOffLEDs(leds); // Adicione trun off após o loop interno para desligar a matriz
+}
+
+
+void a2(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]) {
+    // Ligar linha por linha
+    for (int linha = 0; linha < MATRIX_ROWS; linha++) {
+        
+        for (int col = 0; col < MATRIX_COLS; col++) {
+            rgb_matrix[linha][col][0] = 255; // R
+            rgb_matrix[linha][col][1] = 0;   // G
+            rgb_matrix[linha][col][2] = 0;   // B
+        }
+        spriteWirite(rgb_matrix, leds);
+        matrizWrite(leds); 
+        sleep_ms(500); // Pausa para visualizar a linha acendendo
+    }
+
+    // Desligar linha por linha
+    for (int linha = 0; linha < MATRIX_ROWS; linha++) {
+        
+        for (int col = 0; col < MATRIX_COLS; col++) {
+            rgb_matrix[linha][col][0] = 0; // R
+            rgb_matrix[linha][col][1] = 0; // G
+            rgb_matrix[linha][col][2] = 0; // B
+        }
+        spriteWirite(rgb_matrix, leds);
+        matrizWrite(leds); 
+        sleep_ms(500); // Pausa para visualizar a linha apagando
+    }
+}
+
+void acendeAzulTotal(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]) {
+    
+    for (int linha = 0; linha < MATRIX_ROWS; linha++) {
+        for (int col = 0; col < MATRIX_COLS; col++) {
+            rgb_matrix[linha][col][0] = 0;   
+            rgb_matrix[linha][col][1] = 0;   
+            rgb_matrix[linha][col][2] = 255; // B (azul, 100% intensidade)
+        }
+    }
+    // Atualiza os LEDs com a matriz configurada
+    spriteWirite(rgb_matrix, leds);
+    matrizWrite(leds); 
 }
