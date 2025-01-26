@@ -24,6 +24,7 @@ void a4(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MAT
 // Funções obrigatórias
 void acendeAzulTotal(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
 void acendeVerdeTotal(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
+void acendeVermelho80(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
 
 int main() {
     npLED_t leds[LED_COUNT];
@@ -69,6 +70,7 @@ int main() {
             printf("Você pressionou B\n"); // implementação da animação 12
         } else if (key == 'C') {
             printf("Você pressionou C\n"); // implementação da animação 13
+            acendeVermelho80(leds, rgb_matrix);
         } else if (key == 'D') {
             acendeVerdeTotal(leds, rgb_matrix);
             printf("Você pressionou D\n"); // implementação da animação 14
@@ -173,6 +175,19 @@ void acendeVerdeTotal(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][M
         }
     }
     // Atualiza os LEDs com a matriz configurada
+    spriteWirite(rgb_matrix, leds);
+    matrizWrite(leds); 
+}
+
+void acendeVermelho80(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]) {
+    
+    for (int linha = 0; linha < MATRIX_ROWS; linha++) {
+        for (int col = 0; col < MATRIX_COLS; col++) {
+            rgb_matrix[linha][col][0] = 255*0.8;   // c - acender leds vermelho a 80% da intensidade
+            rgb_matrix[linha][col][1] = 0;   
+            rgb_matrix[linha][col][2] = 0; 
+        }
+    }
     spriteWirite(rgb_matrix, leds);
     matrizWrite(leds); 
 }
