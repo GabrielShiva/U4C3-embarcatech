@@ -10,6 +10,7 @@
 #include "includes/convertePixels.h"
 
 #include "animacoes/teste.h"
+#include "animacoes/cobrinha.h"
 
 #define MATRIX_ROWS 5
 #define MATRIX_COLS 5
@@ -17,6 +18,7 @@
 
 void a1();
 void a2(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
+void a3(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
 void a4(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
 
 // Funções obrigatórias
@@ -43,7 +45,8 @@ int main() {
             a2(leds, rgb_matrix);
             printf("Você pressionou 2\n"); // implementação da animação 2
         } else if (key == '3') {
-            printf("Você pressionou 3\n"); // implementação da animação 3
+            printf("Você pressionou 3\n");// implementação da animação 3
+            a3(29, leds, rgb_matrix);
         } else if (key == '4') {
             a4(7, leds, rgb_matrix);
             printf("Você pressionou 4\n"); // implementação da animação 4
@@ -121,6 +124,16 @@ void a2(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]) 
         matrizWrite(leds); 
         sleep_ms(500); // Pausa para visualizar a linha apagando
     }
+}
+
+void a3(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]) {
+        for (int i = 0; i < frames; i++) {
+            convertARGBtoMatriz(cobrinha[i], rgb_matrix);
+            spriteWirite(rgb_matrix, leds);
+            matrizWrite(leds); 
+            sleep_ms(300); // Define a velocidade da animação
+        }
+        turnOffLEDs(leds); // Adicione trun off após o loop interno para desligar a matriz
 }
 
 // Na estrutura da função a4, o parâmetro frames é o número de frames na animação, definida na hora da criação do array animacao4.
