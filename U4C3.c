@@ -147,7 +147,6 @@ void a3(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MAT
         turnOffLEDs(leds); // Adicione trun off após o loop interno para desligar a matriz
 }
 
-// Na estrutura da função a4, o parâmetro frames é o número de frames na animação, definida na hora da criação do array animacao4.
 void a4(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]) {
     // Repete a animação 3 vezes
     for (int i = 0; i < 3; i++) {

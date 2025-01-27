@@ -10,7 +10,6 @@
 #define NO_KEY_PRESSED 0
 
 #define BUZZER_PIN 21
-#define MATIRX_PIN 7
 
 const uint8_t row_pins[KEYPAD_ROWS] = {15,14,13,12};
 const uint8_t col_pins[KEYPAD_COLS] = {11,10,9,8};
@@ -43,8 +42,6 @@ char keypad_read() {
     for (uint8_t j = 0; j < KEYPAD_COLS; j++) {
       if (gpio_get(col_pins[j]) == HIGH_LEVEL) {
         sleep_ms(50);
-        while(gpio_get(col_pins[j]));
-
         gpio_put(row_pins[i], LOW_LEVEL);
 
         return key_map[i][j];
