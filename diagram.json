@@ -18,20 +18,12 @@
       "left": -19.74,
       "rotate": 180,
       "attrs": { "rows": "5", "cols": "5", "matrixLayout": "serpentine" }
-    },
-    {
-      "type": "wokwi-buzzer",
-      "id": "bz1",
-      "top": -16.8,
-      "left": 347.4,
-      "attrs": { "volume": "0.1" }
     }
   ],
   "connections": [
     [ "pico:GP0", "$serialMonitor:RX", "", [] ],
     [ "pico:GP1", "$serialMonitor:TX", "", [] ],
     [ "pico:GND.6", "bz1:1", "black", [ "h0" ] ],
-    [ "pico:GP21", "bz1:2", "green", [ "h0" ] ],
     [ "keypad1:C4", "pico:GP8", "violet", [ "v0" ] ],
     [ "keypad1:C2", "pico:GP10", "violet", [ "v105.6", "h0", "v9.6" ] ],
     [ "keypad1:C3", "pico:GP9", "violet", [ "v0" ] ],
