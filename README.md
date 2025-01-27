@@ -39,7 +39,7 @@ A equipe está organizada conforme a tabela abaixo:
 | Nome 6              | Desenvolvedor           | Animação para a tecla 6              |
 | Nome 7              | Desenvolvedor           | Animação para a tecla 7              |
 | Nome 8              | Desenvolvedor           | Animação para a tecla 8              |
-| Nome 9              | Desenvolvedor           | Animação para a tecla 9              |
+| Gabriel Shiva             | Desenvolvedor           | Animação para a tecla 9 e implementação da rotina das letras A e *             |
 
 
 ## Como Executar
