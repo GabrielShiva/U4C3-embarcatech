@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
+#include "pico/bootrom.h"
 #include "hardware/pio.h"
 #include "hardware/clocks.h"
 
@@ -41,50 +42,59 @@ int main() {
         char key = keypad_read();
        
         if (key == '1') {
-            printf("Você pressionou 1\n"); // implementação da animação 1
+            // implementação da animação 1
+            printf("TECLA PRESSIONADA: 1\n"); 
             a1(16, leds, rgb_matrix);
         } else if (key == '2') {
+            // implementação da animação 2
+            printf("TECLA PRESSIONADA: 2\n"); 
             a2(leds, rgb_matrix);
-            printf("Você pressionou 2\n"); // implementação da animação 2
         } else if (key == '3') {
-            printf("Você pressionou 3\n");// implementação da animação 3
+            // implementação da animação 3
+            printf("TECLA PRESSIONADA: 3\n");
             a3(29, leds, rgb_matrix);
         } else if (key == '4') {
+            // implementação da animação 4
+            printf("TECLA PRESSIONADA: 4\n"); 
             a4(7, leds, rgb_matrix);
-            printf("Você pressionou 4\n"); // implementação da animação 4
         } else if (key == '5') {
-            printf("Você pressionou 5\n"); // implementação da animação 5
+            // implementação da animação 5
+            printf("TECLA PRESSIONADA: 5\n"); 
         } else if (key == '6') {
-            printf("Você pressionou 6\n"); // implementação da animação 6
+            // implementação da animação 6
+            printf("TECLA PRESSIONADA: 6\n"); 
         } else if (key == '7') {
-            printf("Você pressionou 7\n"); // implementação da animação 7
+            // implementação da animação 7
+            printf("TECLA PRESSIONADA: 7\n"); 
         } else if (key == '8') {
-            printf("Você pressionou 8\n");// implementação da animação 8
+            // implementação da animação 8
+            printf("TECLA PRESSIONADA: 8\n");
         } else if (key == '9') {
-            printf("Você pressionou 9\n");// implementação da animação 9
+            // implementação da animação 9
+            printf("TECLA PRESSIONADA: 9\n");
             a9(10, leds, rgb_matrix);
         } else if (key == '0') {
-            printf("Você pressionou 0\n"); // implementação da animação 10
+            // implementação da animação 10
+            printf("TECLA PRESSIONADA: 0\n"); 
         } else if (key == 'A') {
-            printf("Você pressionou A\n");
+            printf("TECLA PRESSIONADA: A\n");
         } else if (key == 'B') {
+            printf("TECLA PRESSIONADA: B\n"); 
             acendeAzulTotal(leds, rgb_matrix);
-            printf("Você pressionou B\n"); 
         } else if (key == 'C') {
-            printf("Você pressionou C\n");
+            printf("TECLA PRESSIONADA: C\n");
             acendeVermelho80(leds, rgb_matrix);
         } else if (key == 'D') {
+            printf("TECLA PRESSIONADA: D\n"); 
             acendeVerdeTotal(leds, rgb_matrix);
-            printf("Você pressionou D\n"); 
         } else if (key == '*') {
-            printf("Você pressionou *\n");
+            printf("TECLA PRESSIONADA: *\n");
+            reset_usb_boot(0, 0);
         } else if (key == '#') {
-            printf("Você pressionou #\n"); 
-        } else {
-            printf("Tecla nao reconhecida\n");
+            printf("TECLA PRESSIONADA: #\n"); 
         }
 
-        sleep_ms(500);
+        sleep_ms(200);
     }
 }
 
