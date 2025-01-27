@@ -17,7 +17,6 @@ typedef pixel_t npLED_t; // Mudança de nome de "struct pixel_t" para "npLED_t" 
 PIO np_pio;
 uint sm;
 
-
 // Inicializa a matriz de LEDs.
 void matrizInit(uint pin, npLED_t leds[]) {
 
@@ -68,7 +67,6 @@ void turnOffLEDs(npLED_t leds[]) {
   matrizWrite(leds);
 }
 
-
 int getIndex(int x, int y) {
     // Se a linha for par (0, 2, 4), percorremos da esquerda para a direita.
     // Se a linha for ímpar (1, 3), percorremos da direita para a esquerda.
@@ -78,7 +76,6 @@ int getIndex(int x, int y) {
         return 24-(y * 5 + (4 - x)); // Linha ímpar (direita para esquerda).
     }
 }
-
 
 void spriteWirite(int matriz[5][5][3], npLED_t leds[]) { 
   for(int linha = 0; linha < 5; linha++){

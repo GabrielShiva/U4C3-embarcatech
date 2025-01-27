@@ -115,7 +115,7 @@ uint32_t animacao1[16][25] = {
 }
 };
 
-uint32_t animacao4[16][25] = {
+uint32_t animacao4[7][25] = {
 {
 0xff00eedd, 0xff00eedd, 0xff00eedd, 0xff00eedd, 0xff00eedd, 
 0xff00eedd, 0xff0000ff, 0xff00eedd, 0x00000000, 0x00000000, 
@@ -165,5 +165,4 @@ uint32_t animacao4[16][25] = {
 0xff00eedd, 0xff00eedd, 0xff00eedd, 0x00000000, 0x00000000, 
 0xff00eedd, 0xff00eedd, 0xff00eedd, 0xff00eedd, 0xff00eedd
 }
-
 };
