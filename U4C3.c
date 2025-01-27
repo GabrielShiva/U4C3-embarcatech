@@ -11,16 +11,17 @@
 
 #include "animacoes/teste.h"
 #include "animacoes/cobrinha.h"
+#include "animacoes/contagem.h"
 
 #define MATRIX_ROWS 5
 #define MATRIX_COLS 5
 #define MATRIX_DEPTH 3
 
-void a1();
+void a1(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
 void a2(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
 void a3(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
 void a4(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
-void a7(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
+void a9(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
 
 // Funções obrigatórias
 void acendeAzulTotal(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
@@ -58,9 +59,10 @@ int main() {
         } else if (key == '7') {
             printf("Você pressionou 7\n"); // implementação da animação 7
         } else if (key == '8') {
-            printf("Você pressionou 8\n"); // implementação da animação 8
+            printf("Você pressionou 8\n");// implementação da animação 8
         } else if (key == '9') {
-            printf("Você pressionou 9\n"); // implementação da animação 9
+            printf("Você pressionou 9\n");// implementação da animação 9
+            a9(10, leds, rgb_matrix);
         } else if (key == '0') {
             printf("Você pressionou 0\n"); // implementação da animação 10
         } else if (key == 'A') {
@@ -78,6 +80,8 @@ int main() {
             printf("Você pressionou *\n");
         } else if (key == '#') {
             printf("Você pressionou #\n"); 
+        } else {
+            printf("Tecla nao reconhecida\n");
         }
 
         sleep_ms(500);
@@ -135,16 +139,26 @@ void a3(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MAT
 
 // Na estrutura da função a4, o parâmetro frames é o número de frames na animação, definida na hora da criação do array animacao4.
 void a4(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]) {
-        // Repete a animação 3 vezes
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < frames; j++) {
-                convertARGBtoMatriz(animacao4[j], rgb_matrix);
-                spriteWirite(rgb_matrix, leds);
-                matrizWrite(leds); 
-                sleep_ms(100); // Define a velocidade da animação
-            }
+    // Repete a animação 3 vezes
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < frames; j++) {
+            convertARGBtoMatriz(animacao4[j], rgb_matrix);
+            spriteWirite(rgb_matrix, leds);
+            matrizWrite(leds); 
+            sleep_ms(100); // Define a velocidade da animação
         }
-        turnOffLEDs(leds); // Desligando a matriz de led após a execução da animação
+    }
+    turnOffLEDs(leds); // Desligando a matriz de led após a execução da animação
+}
+
+void a9(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]) {
+        for (int i = 0; i < frames; i++) {
+            convertARGBtoMatriz(contagem_regressiva[i], rgb_matrix);
+            spriteWirite(rgb_matrix, leds);
+            matrizWrite(leds); 
+            sleep_ms(1000); // Define a velocidade da animação
+        }
+        turnOffLEDs(leds); // Adicione trun off após o loop interno para desligar a matriz
 }
 
 void acendeAzulTotal(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]) {
