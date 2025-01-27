@@ -20,6 +20,7 @@ void a1();
 void a2(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
 void a3(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
 void a4(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
+void a7(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
 
 // Funções obrigatórias
 void acendeAzulTotal(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
@@ -36,7 +37,6 @@ int main() {
     matrizInit(LED_PIN, leds);
 
     while (true) {
-
         char key = keypad_read();
        
         if (key == '1') {
@@ -64,41 +64,36 @@ int main() {
         } else if (key == '0') {
             printf("Você pressionou 0\n"); // implementação da animação 10
         } else if (key == 'A') {
-            printf("Você pressionou A\n"); // implementação da animação 11
+            printf("Você pressionou A\n");
         } else if (key == 'B') {
             acendeAzulTotal(leds, rgb_matrix);
-            printf("Você pressionou B\n"); // implementação da animação 12
+            printf("Você pressionou B\n"); 
         } else if (key == 'C') {
-            printf("Você pressionou C\n"); // implementação da animação 13
+            printf("Você pressionou C\n");
             acendeVermelho80(leds, rgb_matrix);
         } else if (key == 'D') {
             acendeVerdeTotal(leds, rgb_matrix);
-            printf("Você pressionou D\n"); // implementação da animação 14
+            printf("Você pressionou D\n"); 
         } else if (key == '*') {
-            printf("Você pressionou *\n"); // implementação da animação 15
+            printf("Você pressionou *\n");
         } else if (key == '#') {
-            printf("Você pressionou #\n"); // implementação da animação 16
-        } else {
-            printf("Tecla não reconhecida\n"); // implementação da animação 17
+            printf("Você pressionou #\n"); 
         }
 
         sleep_ms(500);
     }
- 
 }
-
 
 // Na estrutura da função a1, o parâmetro frames é o número de frames na animação, definida na hora da criação do array animacao1.
 void a1(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]) {
-        for (int j = 0; j < frames; j++) {
-            convertARGBtoMatriz(animacao1[j], rgb_matrix);
-            spriteWirite(rgb_matrix, leds);
-            matrizWrite(leds); 
-            sleep_ms(100); // Define a velocidade da animação
-        }
-        turnOffLEDs(leds); // Adicione trun off após o loop interno para desligar a matriz
+    for (int j = 0; j < frames; j++) {
+        convertARGBtoMatriz(animacao1[j], rgb_matrix);
+        spriteWirite(rgb_matrix, leds);
+        matrizWrite(leds); 
+        sleep_ms(100); // Define a velocidade da animação
+    }
+    turnOffLEDs(leds); // Adicione trun off após o loop interno para desligar a matriz
 }
-
 
 void a2(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]) {
     // Ligar linha por linha
