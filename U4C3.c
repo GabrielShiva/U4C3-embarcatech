@@ -28,6 +28,8 @@ void a9(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MAT
 void acendeAzulTotal(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
 void acendeVerdeTotal(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
 void acendeVermelho80(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
+void acendeBranco20(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
+void apagaTodosLeds(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
 
 int main() {
     npLED_t leds[LED_COUNT];
@@ -78,6 +80,7 @@ int main() {
             printf("TECLA PRESSIONADA: 0\n"); 
         } else if (key == 'A') {
             printf("TECLA PRESSIONADA: A\n");
+            apagaTodosLeds(leds, rgb_matrix);
         } else if (key == 'B') {
             printf("TECLA PRESSIONADA: B\n"); 
             acendeAzulTotal(leds, rgb_matrix);
@@ -92,6 +95,7 @@ int main() {
             reset_usb_boot(0, 0);
         } else if (key == '#') {
             printf("TECLA PRESSIONADA: #\n"); 
+            acendeBranco20(leds, rgb_matrix);
         }
 
         sleep_ms(200);
@@ -198,7 +202,6 @@ void acendeVerdeTotal(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][M
 }
 
 void acendeVermelho80(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]) {
-    
     for (int linha = 0; linha < MATRIX_ROWS; linha++) {
         for (int col = 0; col < MATRIX_COLS; col++) {
             rgb_matrix[linha][col][0] = 255*0.8;   // c - acender leds vermelho a 80% da intensidade
@@ -209,3 +212,21 @@ void acendeVermelho80(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][M
     spriteWirite(rgb_matrix, leds);
     matrizWrite(leds); 
 }
+
+void acendeBranco20(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]) {
+    for (int linha = 0; linha < MATRIX_ROWS; linha++) {
+        for (int col = 0; col < MATRIX_COLS; col++) {
+            rgb_matrix[linha][col][0] = 255*0.2;
+            rgb_matrix[linha][col][1] = 255*0.2;   
+            rgb_matrix[linha][col][2] = 255*0.2; 
+        }
+    }
+    spriteWirite(rgb_matrix, leds);
+    matrizWrite(leds); 
+}
+
+void apagaTodosLeds(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]) {
+    npClear(leds);
+    matrizWrite(leds); 
+}
+
