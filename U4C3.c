@@ -22,6 +22,7 @@ void a1(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MAT
 void a2(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
 void a3(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
 void a4(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
+void a5(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
 void a9(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]);
 
 // Funções obrigatórias
@@ -61,7 +62,8 @@ int main() {
             a4(7, leds, rgb_matrix);
         } else if (key == '5') {
             // implementação da animação 5
-            printf("TECLA PRESSIONADA: 5\n"); 
+            printf("TECLA PRESSIONADA: 5\n");
+            a5(5, leds, rgb_matrix);
         } else if (key == '6') {
             // implementação da animação 6
             printf("TECLA PRESSIONADA: 6\n"); 
@@ -164,6 +166,16 @@ void a4(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MAT
     turnOffLEDs(leds); // Desligando a matriz de led após a execução da animação
 }
 
+void a5(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]) {
+        for (int i = 0; i < frames; i++) {
+            convertARGBtoMatriz(animacao5[i], rgb_matrix);
+            spriteWirite(rgb_matrix, leds);
+            matrizWrite(leds); 
+            sleep_ms(1000); // Define a velocidade da animação
+        }
+        turnOffLEDs(leds); // Adicione trun off após o loop interno para desligar a matriz
+}
+
 void a9(int frames, npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]) {
         for (int i = 0; i < frames; i++) {
             convertARGBtoMatriz(contagem_regressiva[i], rgb_matrix);
@@ -216,7 +228,8 @@ void acendeVermelho80(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][M
 void acendeBranco20(npLED_t leds[], int rgb_matrix[MATRIX_ROWS][MATRIX_COLS][MATRIX_DEPTH]) {
     for (int linha = 0; linha < MATRIX_ROWS; linha++) {
         for (int col = 0; col < MATRIX_COLS; col++) {
-            rgb_matrix[linha][col][0] = 255*0.2;
+            // c - acender leds branco a 20% da intensidade
+            rgb_matrix[linha][col][0] = 255*0.2; 
             rgb_matrix[linha][col][1] = 255*0.2;   
             rgb_matrix[linha][col][2] = 255*0.2; 
         }
