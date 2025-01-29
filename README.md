@@ -55,4 +55,4 @@ A equipe está organizada conforme a tabela abaixo:
 
 
 ## Link do Vídeo
-O vídeo de apresentação pode ser acessado [aqui](#).
+O vídeo de apresentação pode ser acessado [aqui](https://youtu.be/xcX7SyW6HGY).
